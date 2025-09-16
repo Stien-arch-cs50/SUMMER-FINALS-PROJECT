@@ -1,69 +1,96 @@
 package Frame;
-import java.awt.*;
+import Entity.Salami;
 import java.awt.event.*;
-import java.lang.*; //package for font & coloring
-import javax.swing.*; //package for GUI components
+import javax.swing.*;
 
-public class FrameSalaami extends JFrame implements ActionListener {
-    private JTextField inputField;
-    private JLabel totalLabel,label3;
-    private int totalSalaami = 0;
-    private ImageIcon bkImg1, bkImg2;
-    private JPanel panel;
-    private JComboBox cb1;
-    private JComboBox cb2;
-    private Color c1;
-    private JRadioButton rb1, rb2;
+public class FrameSalaami extends JFrame  {
+    private JTextField nameField, relationField, festivalField, amountField;
+    private JLabel totalLabel;
+    private Salami salami;
 
     public FrameSalaami() {
-        super.setTitle("✨ Eid Salaami Calculator");
-        super.setBounds(512, 100, 750, 750);
-        super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        panel = new JPanel();
-        panel.setLayout(null);
-        c1 = new Color(198, 199, 186);
-         panel.setBackground(c1);
+        salami = new Salami("", "", "",  0, 0);
+        ImageIcon logo;
+        logo = new ImageIcon("Picture/icon.jpg");
 
-        JLabel promptLabel = new JLabel("Enter Salaami Account(Name):");
-        promptLabel.setBounds(10, -38, 200, 200);
-        panel.add(promptLabel);
-        inputField = new JTextField();
-        inputField.setBounds(195, 50, 120,30);
-        panel.add(inputField);
+        setTitle("Eidi calculator");
+        //setSize(400, 350);
+        setBounds(512, 100, 750, 750);
 
-        label3 = new JLabel("Your Name:");
-		label3.setBounds(20, -50, 120,100);
-        panel.add(label3);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setIconImage(logo.getImage());
+        setLayout(null);
 
-        JButton addButton = new JButton("Add");
-        JButton resetButton = new JButton("Reset");
-        totalLabel = new JLabel("Total Salaami: ৳0");
+        JLabel nameLabel = new JLabel("Name:");
+        nameLabel.setBounds(30, 30, 100, 25);
+        add(nameLabel);
 
-        addButton.addActionListener(this);
-        resetButton.addActionListener(e -> {
-            totalSalaami = 0;
-            totalLabel.setText("Total Salaami: ৳0");
-        });
+        nameField = new JTextField();
+        nameField.setBounds(140, 30, 200, 25);
+        add(nameField);
 
-        add(promptLabel);
-        add(inputField);
-        add(addButton);
-        add(resetButton);
+        JLabel relationLabel = new JLabel("Relation:");
+        relationLabel.setBounds(30, 70, 100, 25);
+        add(relationLabel);
+
+        relationField = new JTextField();
+        relationField.setBounds(140, 70, 200, 25);
+        add(relationField);
+
+        JLabel festivalLabel = new JLabel("Festival:");
+        festivalLabel.setBounds(30, 110, 100, 25);
+        add(festivalLabel);
+
+        festivalField = new JTextField();
+        festivalField.setBounds(140, 110, 200, 25);
+        add(festivalField);
+
+        JLabel amountLabel = new JLabel("Amount:");
+        amountLabel.setBounds(30, 150, 100, 25);
+        add(amountLabel);
+
+        amountField = new JTextField();
+        amountField.setBounds(140, 150, 200, 25);
+        add(amountField);
+
+        JButton submitButton = new JButton("Submit");
+        submitButton.setBounds(140, 190, 100, 30);
+        add(submitButton);
+
+        totalLabel = new JLabel("Total Salami Amount: 0");
+        totalLabel.setBounds(30, 240, 300, 25);
         add(totalLabel);
 
-        setVisible(true);
-    }
+        submitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    String name = nameField.getText();
+                    String relation = relationField.getText();
+                    String festival = festivalField.getText();
+                    int amount = Integer.parseInt(amountField.getText());
 
-    public void actionPerformed(ActionEvent e) {
-        try {
-            int amount = Integer.parseInt(inputField.getText());
-            totalSalaami += amount;
-            totalLabel.setText("Total Salaami: ৳" + totalSalaami);
-            inputField.setText("");
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Please enter a valid number.");
-        }
+                    salami.setName(name);
+                    salami.setRelation(relation);
+                    salami.setFestival(festival);
+                    salami.setAmount(amount);
+
+                    int total = salami.CalculateTotalAmount();
+                    totalLabel.setText("Total Salami Amount: " + total + " TK");
+
+                    nameField.setText("");
+                    relationField.setText("");
+                    festivalField.setText("");
+                    amountField.setText("");
+
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Please enter a valid number for amount.");
+                }
+            }
+        });
+        
+
+        
     }
+       
 
 }
