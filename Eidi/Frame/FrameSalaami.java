@@ -13,7 +13,7 @@ public class FrameSalaami extends JFrame  {
         ImageIcon logo;
         logo = new ImageIcon("Picture/icon.jpg");
 
-        setTitle("Eidi calculator");
+        setTitle("Eid Salaami calculator");
         //setSize(400, 350);
         setBounds(512, 100, 750, 750);
 
