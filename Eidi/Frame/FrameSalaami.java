@@ -22,43 +22,43 @@ public class FrameSalaami extends JFrame  {
         setLayout(null);
 
         JLabel nameLabel = new JLabel("Name:");
-        nameLabel.setBounds(30, 30, 100, 25);
+        nameLabel.setBounds(140, 30, 100, 25);
         add(nameLabel);
 
         nameField = new JTextField();
-        nameField.setBounds(140, 30, 200, 25);
+        nameField.setBounds(250, 30, 200, 25);
         add(nameField);
 
         JLabel relationLabel = new JLabel("Relation:");
-        relationLabel.setBounds(30, 70, 100, 25);
+        relationLabel.setBounds(140, 70, 100, 25);
         add(relationLabel);
 
         relationField = new JTextField();
-        relationField.setBounds(140, 70, 200, 25);
+        relationField.setBounds(250, 70, 200, 25);
         add(relationField);
 
         JLabel festivalLabel = new JLabel("Festival:");
-        festivalLabel.setBounds(30, 110, 100, 25);
+        festivalLabel.setBounds(140, 110, 100, 25);
         add(festivalLabel);
 
         festivalField = new JTextField();
-        festivalField.setBounds(140, 110, 200, 25);
+        festivalField.setBounds(250, 110, 200, 25);
         add(festivalField);
 
         JLabel amountLabel = new JLabel("Amount:");
-        amountLabel.setBounds(30, 150, 100, 25);
+        amountLabel.setBounds(140, 150, 100, 25);
         add(amountLabel);
 
         amountField = new JTextField();
-        amountField.setBounds(140, 150, 200, 25);
+        amountField.setBounds(250, 150, 200, 25);
         add(amountField);
 
         JButton submitButton = new JButton("Submit");
-        submitButton.setBounds(140, 190, 100, 30);
+        submitButton.setBounds(250, 190, 100, 30);
         add(submitButton);
 
         totalLabel = new JLabel("Total Salami Amount: 0");
-        totalLabel.setBounds(30, 240, 300, 25);
+        totalLabel.setBounds(140, 240, 300, 25);
         add(totalLabel);
 
         submitButton.addActionListener(new ActionListener() {
