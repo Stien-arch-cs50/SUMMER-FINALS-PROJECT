@@ -1,0 +1,25 @@
+# Instructions to add JDatePicker to your project
+
+1. Download the JDatePicker library (jdatepicker-x.x.x.jar) from:
+   https://sourceforge.net/projects/jdatepicker/
+
+2. Place the downloaded JAR file in your project directory, e.g., in a new folder called `lib`.
+
+3. Add the JAR to your classpath:
+   - If using an IDE (like Eclipse/NetBeans/IntelliJ), right-click your project, go to Build Path > Add External JARs, and select the JAR.
+   - If compiling from the command line, add `` to your `javac` and `java` commands.
+
+4. Once added, you can use the date picker in your code like this:
+
+```java
+import org.jdatepicker.impl.*;
+
+// ... inside your FrameSalaami constructor:
+UtilDateModel model = new UtilDateModel();
+JDatePanelImpl datePanel = new JDatePanelImpl(model);
+JDatePickerImpl datePicker = new JDatePickerImpl(datePanel);
+datePicker.setBounds(250, 190, 200, 30); // Adjust position as needed
+add(datePicker);
+```
+
+Let me know when the JAR is added, and I’ll update your code to use the date picker!
