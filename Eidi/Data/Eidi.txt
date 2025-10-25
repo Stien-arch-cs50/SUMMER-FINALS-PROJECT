@@ -16,3 +16,9 @@ Festival: jhgjhg
 Amount: 656565
 Date & Time: 2025-09-17 20:34:25
 -----------------------------
+Name: Abdullah
+Relation: Father
+Festival: Eid Ul Fitr
+Amount: 3000
+Date & Time: 2025-09-18 09:25:16
+-----------------------------

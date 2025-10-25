@@ -225,13 +225,11 @@ public class FrameSalaami extends JFrame  {
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(this, "Please enter a valid number for amount.");
             }
+
         });
-    });
 
         // Set festival field when radio buttons are selected
         fitrRadio.addActionListener(e -> festivalField.setText("Eid Ul Fitr"));
         adhaRadio.addActionListener(e -> festivalField.setText("Eid Ul Adha"));
-}
-       
-
+    }
 }
